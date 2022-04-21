@@ -7,7 +7,7 @@ a {
     text-decoration: none;
 }
 .hero-img {
-    background: url('../images/image1.jpg');
+    background: url('../images/image3.jpg');
     background-size: cover;
     background-position-x: 20%;
     background-position-y: 20%;
@@ -24,9 +24,55 @@ a {
     font-weight: bold;
 }
 nav {
-    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    height: 100vh;
+    width: 50%;
+    z-index: 999;
+    text-transform: uppercase;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 8em;
+
+    a {
+    color: #22577E;
+    padding: .75em 2em;
+    display: block;
+
+        &:hover {
+            background: #FAF3E0;
+        }
+ }
+}
+.fa-circle-xmark {
+        float: right;
+        margin-top: 2em;
+        font-size: 25px;
 }
 .header {
     justify-content: space-between;
     display: flex;
+}
+.pic .fa-mug-saucer{
+    position: absolute;
+    top: 23px;
+    right: 16px;
+    font-size: 25px; 
+}
+section.hero {
+    color: #22577E;
+    height: 90vh;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 2em;
+    line-height: 3.3rem;
+}
+.subhead {
+    font-size: 1.4rems;
 }

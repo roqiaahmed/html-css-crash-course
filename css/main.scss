@@ -18,10 +18,15 @@ a {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    animation: introLoad 2s forwards;
 }
 .logo {
-    color: #fff;
+    color: #5584AC;
     font-weight: bold;
+    
+    span {
+        color: #95D1CC;
+    }
 }
 nav {
     position: fixed;
@@ -32,40 +37,47 @@ nav {
     width: 50%;
     z-index: 999;
     text-transform: uppercase;
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 8em;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
 
-    a {
-    color: #22577E;
-    padding: .75em 2em;
-    display: block;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 8em;
 
-        &:hover {
-            background: #FAF3E0;
+        a {
+        color: #22577E;
+        padding: .75em 2em;
+        display: block;
+
+            &:hover {
+                background: #FAF3E0;
+            }
         }
- }
-}
-.fa-circle-xmark {
+    }
+    .fa-circle-xmark {
         float: right;
         margin-top: 2em;
         font-size: 25px;
+        margin-right: 20px;
+    }
 }
-.header {
+header {
     justify-content: space-between;
     display: flex;
-}
-.pic .fa-mug-saucer{
-    position: absolute;
-    top: 23px;
-    right: 16px;
-    font-size: 25px; 
+    .menu .fa-mug-saucer{
+        position: absolute;
+        top: 23px;
+        right: 16px;
+        font-size: 25px; 
+    }
 }
 section.hero {
     color: #22577E;
     height: 90vh;
+}
+.arrow-down {
+    animation: moveArrow 1s alternate-reverse infinite;
 }
 
 h1 {
@@ -75,4 +87,144 @@ h1 {
 }
 .subhead {
     font-size: 1.4rems;
+}
+.more-info {
+    img {
+        width: 30%;
+        object-fit: cover;
+        height: 30%;
+    }
+    .title {
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+    .desc {
+        line-height: 1.5rem;
+    }
+}
+.open-nav {
+    transform: translateX(0%);
+}
+
+@media only screen and (min-width: 680px) {
+    body {
+        margin: 1.5em 5em;
+        font-family: 'poppins', sans-serif;
+    }
+}
+@media only screen and (min-width: 920px) {
+    .menu {
+        display: none;
+    }
+    nav {
+        transform: translateX(0);
+        position: unset;
+        width: auto;
+        height: auto;
+        display: block;
+        background: none;
+
+        .fa-circle-xmark {
+            display: none;
+        }
+        ul {
+            display: flex;
+            margin: 0;
+
+            a{
+                color: #22577E;
+                padding: 0.5em 1.5em;
+                font-size: .9rem;
+
+                &:hover {
+                    background: none;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .hero-img {
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 42em;
+    }
+    section.hero {
+        color: #22577E;
+        width: 40%;
+        height: auto;
+        margin-bottom: 15em;
+        margin-top: 15em;
+        animation: moveDown ease-in-out forwards;
+        opacity: 0;
+    }
+
+
+    .feature {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        margin-bottom: 8em;
+
+        img {
+            width: 70%;
+            height: 70%;
+        }
+
+        .content {
+            text-align: right;
+            width: 25em;
+        }
+    }
+
+    .feature.left {
+        grid-template-areas: 
+            "left right";
+        
+        img {
+            grid-area: left;
+        }
+
+        .content {
+            text-align: left;
+            width: 25em;
+            justify-self: left;
+        }
+    }
+} 
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .feature {
+        gap: 0;
+    }
+}
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+@keyframes moveArrow {
+    from {
+        transform: translateY(-10px)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px)
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+   
 }
